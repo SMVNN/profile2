@@ -10,7 +10,7 @@
     <script>
       const getMessagesAndAnswer = () => {
         window.addEventListener("message", function(message) {
-        console.log(message);
+        console.log(message.origin);
           if (message.origin == "http://localhost:3000/repositories/9") {
               console.log("coucou");
             if (message.data == "init") {
