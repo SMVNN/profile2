@@ -13,6 +13,7 @@
         console.log(message);
           if (message.origin == "http://localhost:3000/") {
             if (message.data == "init") {
+              console.log("coucou");
             const h = document.querySelectorAll("h1, h2, h3, h4, h5, h6, li, p, div, span, mark, ins, del, sup, sub, small, i, b, blockquote, q, strong, em");
             console.log(h);
             h.forEach ((tag) => {
