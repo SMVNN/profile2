@@ -21,7 +21,9 @@
                 tag.contentEditable = "true";
                 tag.addEventListener("click", () => {
                   const old_content = tag.innerText;
-                  message.source.postMessage(old_content, message.origin)
+                  message.source.postMessage(old_content, message.origin);
+                  console.log(old_content);
+                  console.log(message)
                 }, { once: true });
                 tag.addEventListener("keyup", () => {
                   const new_content = tag.innerText;
