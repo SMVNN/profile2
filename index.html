@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <script>
+      const getMessagesAndAnswer = () => {
+        window.addEventListener("message", function(message) {
+          console.log(message)
+          if (message.origin !== "http://localhost:3000/") {
+            return;
+          } else if (message.data == "init") {
+            const h = i.document.querySelectorAll("h1, h2, h3, h4, h5, h6, li, p, div, span, mark, ins, del, sup, sub, small, i, b, blockquote, q, strong, em");
+            h.forEach ((tag) => {
+              if (tag.childNodes[0] && tag.childNodes[0].textContent.trim() != "") {
+                tag.contentEditable = "true";
+                tag.addEventListener("click", () => {
+                  const old_content = tag.innerText;
+                }, { once: true });
+                  message.source.postMessage(old_content, event.origin)
+                tag.addEventListener("keyup", () => {
+                  const new_content = tag.innerText;
+                  message.source.postMessage(new_content, event.origin)
+                });
+              }
+            })
+          }
+        });
+      }
+    </script>
   </head>
   <body>
     <img src="images/pp.jpg" alt="Swann" id="pp">
