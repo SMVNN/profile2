@@ -27,6 +27,8 @@
                   const new_content = tag.innerText;
                   message.source.postMessage(new_content, event.origin)
                 });
+            } else {
+              return;
               }
             })
             }
