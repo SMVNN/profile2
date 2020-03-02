@@ -22,11 +22,11 @@
                 tag.addEventListener("click", () => {
                   console.log(event)
                   const old_content = tag.innerText;
-                  message.source.postMessage(old_content, event.origin)
+                  message.source.postMessage(old_content, message.origin)
                 }, { once: true });
                 tag.addEventListener("keyup", () => {
                   const new_content = tag.innerText;
-                  message.source.postMessage(new_content, event.origin)
+                  message.source.postMessage(new_content, message.origin)
                 });
           } else {
             return;
