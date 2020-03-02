@@ -20,6 +20,7 @@
               if (tag.childNodes[0] && tag.childNodes[0].textContent.trim() != "") {
                 tag.contentEditable = "true";
                 tag.addEventListener("click", () => {
+                  console.log(event)
                   const old_content = tag.innerText;
                   message.source.postMessage(old_content, event.origin)
                 }, { once: true });
